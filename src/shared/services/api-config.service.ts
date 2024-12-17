@@ -39,10 +39,12 @@ export class ApiConfigService {
   }
 
   getTheGraphApiKey(): string {
-    return this.getEnv('THE_GRAPH_API_KEY');
+    // return this.getEnv('THE_GRAPH_API_KEY');
+    return '';
   }
 
   getRpcUrlsByChainId(chainId: ChainId): string[] {
-    return this.getEnv(`RPC_URLS_${chainId}`).split(',');
+    // return this.getEnv(`RPC_URLS_${chainId}`).split(',');
+    return [`${chainId}`];
   }
 }

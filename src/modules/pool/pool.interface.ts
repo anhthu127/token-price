@@ -42,8 +42,24 @@ export class PoolBalanceDto {
 }
 
 export interface IPoolManager {
+  /**
+   *
+   * get all of pools in a network by index network (chain id)
+   *
+   */
   getPools(chainId: ChainId): Promise<PoolDto[]>;
+  /**
+   *
+   * @param poolBalanceInputDto
+   * get pool information
+   * EX: ETH/BTC
+   * poolAddress
+   * block:
+   * baseAmount: ETH
+   * quoteAmount: BTC
+   *
+   */
   getUnderlyingAmountAtBlock(
-    poolBalanceInputDto: PoolBalanceInputDto,
+    poolBalanceInputDto: PoolBalanceInputDto
   ): Promise<PoolBalanceDto>;
 }
