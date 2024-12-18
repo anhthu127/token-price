@@ -60,6 +60,6 @@ export interface IPoolManager {
    *
    */
   getUnderlyingAmountAtBlock(
-    poolBalanceInputDto: PoolBalanceInputDto
+    poolBalanceInputDto: PoolBalanceInputDto,
   ): Promise<PoolBalanceDto>;
 }

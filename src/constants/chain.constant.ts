@@ -23,3 +23,79 @@ export enum ChainId {
   ZKSYNC = '324',
   SCROLL = '534352',
 }
+
+interface PancakeNetwork {
+  network: string;
+  baseUrl: string;
+  subgraphName: string;
+  version?: string;
+}
+
+export const pancakeNetworks: PancakeNetwork[] = [
+  {
+    network: 'BSC',
+    baseUrl: 'https://thegraph.com/hosted-service/subgraph',
+    subgraphName: 'pancakeswap/exchange-v3-bsc',
+    version: null,
+  },
+  {
+    network: 'BSC Testnet',
+    baseUrl: 'https://thegraph.com/hosted-service/subgraph',
+    subgraphName: 'pancakeswap/exchange-v3-chapel',
+    version: null,
+  },
+  {
+    network: 'ETH',
+    baseUrl: 'https://thegraph.com/hosted-service/subgraph',
+    subgraphName: 'pancakeswap/exchange-v3-eth',
+    version: null,
+  },
+  {
+    network: 'Goerli',
+    baseUrl: 'https://thegraph.com/hosted-service/subgraph',
+    subgraphName: 'pancakeswap/exchange-v3-goerli',
+    version: null,
+  },
+  {
+    network: 'Polygon zkEVM',
+    baseUrl: 'https://api.studio.thegraph.com/query/45376',
+    subgraphName: 'exchange-v3-polygon-zkevm',
+    version: 'version/latest',
+  },
+  {
+    network: 'Polygon zkEVM Testnet',
+    baseUrl: 'https://api.studio.thegraph.com/query/45376',
+    subgraphName: 'exchange-v3-polygon-zkevm-test',
+    version: 'version/latest',
+  },
+  {
+    network: 'zkSync',
+    baseUrl: 'https://api.studio.thegraph.com/query/45376',
+    subgraphName: 'exchange-v3-zksync',
+    version: 'version/latest',
+  },
+  {
+    network: 'zkSync Testnet',
+    baseUrl: 'https://api.studio.thegraph.com/query/45376',
+    subgraphName: 'exchange-v3-zksync-testnet',
+    version: 'version/latest',
+  },
+  {
+    network: 'Linea',
+    baseUrl: 'https://graph-query.linea.build/subgraphs/name',
+    subgraphName: 'pancakeswap/exchange-v3-linea',
+    version: null,
+  },
+  {
+    network: 'Base',
+    baseUrl: 'https://api.studio.thegraph.com/query/45376',
+    subgraphName: 'exchange-v3-base',
+    version: 'version/latest',
+  },
+  {
+    network: 'opBNB',
+    baseUrl: 'https://opbnb-mainnet-graph.nodereal.io/subgraphs/name',
+    subgraphName: 'pancakeswap/exchange-v3',
+    version: null,
+  },
+];

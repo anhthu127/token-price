@@ -5,6 +5,8 @@ import type { IPoolManager } from 'src/modules/pool/pool.interface';
 import { ApiConfigService } from 'src/shared/services/api-config.service';
 import { EvmService } from 'src/shared/services/evm.service';
 
+import { PancakeV3Pool } from './implementations/pancake-v3-pool';
+
 @Injectable()
 export class PoolService {
   private poolProviders: IPoolManager[] = [];
@@ -13,9 +15,10 @@ export class PoolService {
     private configService: ApiConfigService,
     private evmService: EvmService,
   ) {
-    this.poolProviders.push(
+    this.poolProviders = [
       new UniswapV3Pool(this.configService, this.evmService),
-    );
+      new PancakeV3Pool(),
+    ];
   }
 
   async getTokenPriceByBlock(

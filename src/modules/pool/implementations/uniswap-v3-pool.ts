@@ -19,11 +19,11 @@ export class UniswapV3Pool implements IPoolManager {
 
   constructor(
     private configService: ApiConfigService,
-    private evmService: EvmService
+    private evmService: EvmService,
   ) {
     this.subgraphUrls.set(
       ChainId.ETHEREUM,
-      `https://gateway.thegraph.com/api/${this.configService.getTheGraphApiKey()}/subgraphs/id/5zvR82QoaXYFyDEKLZ9t6v9adgnptxYpKpSbxtgVENFV`
+      `https://gateway.thegraph.com/api/${this.configService.getTheGraphApiKey()}/subgraphs/id/5zvR82QoaXYFyDEKLZ9t6v9adgnptxYpKpSbxtgVENFV`,
     );
   }
 
@@ -68,7 +68,7 @@ export class UniswapV3Pool implements IPoolManager {
   }
 
   async getUnderlyingAmountAtBlock(
-    poolBalanceInputDto: PoolBalanceInputDto
+    poolBalanceInputDto: PoolBalanceInputDto,
   ): Promise<PoolBalanceDto> {
     const [baseBalance, quoteBalance] = await this.evmService.executeCallOrSend(
       poolBalanceInputDto.chainId,
@@ -86,12 +86,12 @@ export class UniswapV3Pool implements IPoolManager {
         const baseTokenContract = new ethers.Contract(
           poolBalanceInputDto.baseAddress,
           abi,
-          provider
+          provider,
         );
         const quoteTokenContract = new ethers.Contract(
           poolBalanceInputDto.quoteAddress,
           abi,
-          provider
+          provider,
         );
 
         return Promise.all([
@@ -102,7 +102,7 @@ export class UniswapV3Pool implements IPoolManager {
             blockTag: poolBalanceInputDto.block,
           }),
         ]);
-      }
+      },
     );
 
     return {
